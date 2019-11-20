@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "823722786620",
+    "firebase_url": "https://appdgaea-a8e93.firebaseio.com",
+    "project_id": "appdgaea-a8e93",
+    "storage_bucket": "appdgaea-a8e93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823722786620:android:c6d7704c00720839f62839",
+        "android_client_info": {
+          "package_name": "com.servicio.calidad.app.dgaeaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823722786620-gv4e3ilsh14kpm9q8r9er9nsmd8655ve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.servicio.calidad.app.dgaeaapp",
+            "certificate_hash": "add675539fd5c46ba8c31ba8579fb7f7d76c15e7"
+          }
+        },
+        {
+          "client_id": "823722786620-p9naf32idnh2bgh4t5061bn0lom3up7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnVDlXS90s2Zgo_R7e5KWjhGBkBRUZ8aw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823722786620-p9naf32idnh2bgh4t5061bn0lom3up7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

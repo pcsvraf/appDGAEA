@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">dgaeaApp</string>
-    <string name="botonInicio">COMENZAR</string>
+    <string name="botonInicio">ACCEDER</string>
     <string name="bienvenida">BIENVENID@ AL PORTAL DGAEA</string>
     <string name="descripcion">Acá podrás encontrar todos los servicios ofrecidos por la Dirección de Asuntos Económicos y Administrativos de la PUCV</string>
 </resources>
