@@ -2,6 +2,11 @@
     <string name="app_name">dgaeaApp</string>
     <string name="botonInicio">ACCEDER</string>
     <string name="bienvenida">BIENVENID@ AL PORTAL DGAEA</string>
-    <string name="web_client_id">xxxxxxxx..place your web client id here</string>
+    <string name="not_log_in">No se pudo iniciar sesión</string>
+    <string name="log_out">Log Out</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">No se pudo cerrar sesión</string>
+    <string name="not_revoke">No se pudo revocar el acceso</string>
+    <string name="not_firebase_auth">No se pudo autenticar con Firebase</string>
     <string name="descripcion">Acá podrás encontrar todos los servicios ofrecidos por la Dirección de Asuntos Económicos y Administrativos de la PUCV</string>
 </resources>

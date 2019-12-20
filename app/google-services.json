@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "823722786620-vp7u6s7qnhrmv1h5mpdc1j4pisk8t1go.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.servicio.calidad.app.dgaeaapp",
+            "certificate_hash": "87d05347a0abaaf74510f0ed0b832c52013c22bd"
+          }
+        },
+        {
           "client_id": "823722786620-gv4e3ilsh14kpm9q8r9er9nsmd8655ve.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -36,7 +44,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "823722786620-p9naf32idnh2bgh4t5061bn0lom3up7a.apps.googleusercontent.com",
+              "client_id": "823722786620-v9gh0es86dnkq4vtc902rnm8tgopdq68.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
