@@ -21,8 +21,11 @@
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait"/>
-        <activity android:name=".login"/>
+        <activity android:name=".login"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity android:name=".profile"/>
+        <activity android:name=".MainActivity2"/>
     </application>
 
 </manifest>

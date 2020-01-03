@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -54,6 +55,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .build();
 
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+
 
         signInButton.setSize(SignInButton.SIZE_WIDE);
 
@@ -135,7 +137,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     private void goMainScreen() {
-        Intent intent = new Intent(login.this, profile.class);
+        Intent intent = new Intent(login.this, MainActivity2.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
