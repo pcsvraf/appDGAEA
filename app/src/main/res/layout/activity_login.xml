@@ -58,7 +58,12 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:visibility="gone"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:layout_marginTop="400dp"
+        android:layout_alignParentBottom="true"
         />
 
 </FrameLayout>
