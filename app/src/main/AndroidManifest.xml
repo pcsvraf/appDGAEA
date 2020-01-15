@@ -34,6 +34,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".spm"/>
+        <activity android:name=".formulario"/>
     </application>
 
 </manifest>

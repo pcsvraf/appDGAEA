@@ -25,6 +25,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -38,11 +43,13 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     private ProgressBar progressBar;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        databaseReference= FirebaseDatabase.getInstance().getReference();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -77,6 +84,11 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     goMainScreen();
+                    Map<String, Object> map=new HashMap<>();
+                    map.put("Nombre", user.getDisplayName());
+                    map.put("Email", user.getEmail());
+                    String id=firebaseAuth.getCurrentUser().getUid();
+                    databaseReference.child("Users").child(id).setValue(map);
                 }
             }
         };
@@ -114,12 +126,12 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
         }
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) {
+    private void firebaseAuthWithGoogle(final GoogleSignInAccount signInAccount) {
 
         progressBar.setVisibility(View.VISIBLE);
         signInButton.setVisibility(View.GONE);
 
-        AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
+        final AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
