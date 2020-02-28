@@ -26,9 +26,11 @@ import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -72,9 +74,11 @@ public class formulario extends AppCompatActivity {
 
         protected String doInBackground (String... params){
             String registrar_url="https://pcspucv.cl/tp/registro.php";
+            String get_url="https://pcspucv.cl/tp/extraccion.php";
             String resultado;
 
             try{
+
                 URL url=new URL(registrar_url);
                 HttpsURLConnection httpsURLConnection= (HttpsURLConnection) url.openConnection();
                 httpsURLConnection.setRequestMethod("POST");
@@ -102,6 +106,18 @@ public class formulario extends AppCompatActivity {
                     stringBuilder.append(line);
                 }
                 resultado= stringBuilder.toString();
+
+                URL url2=new URL(get_url);
+                HttpsURLConnection httpsURLConnectionn= (HttpsURLConnection) url2.openConnection();
+                httpsURLConnectionn.setRequestMethod("GET");
+                BufferedReader in = new BufferedReader(new InputStreamReader( httpsURLConnectionn.getInputStream()));
+                StringBuffer response = new StringBuffer("");
+                String inputLine="";
+                StringBuilder sb = new StringBuilder();
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                System.out.println(response.toString());
 
                 bufferedReader.close();
                 inputStream.close();

@@ -35,6 +35,7 @@
         </activity>
         <activity android:name=".spm"/>
         <activity android:name=".formulario"/>
+        <activity android:name=".tabla"/>
     </application>
 
 </manifest>

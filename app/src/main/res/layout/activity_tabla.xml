@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="none"
+    android:layout_weight="1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/primer"
+                    android:layout_column="1"
+                    android:text="ID"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Ctrl-O"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:text="Institución"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Ctrl-S"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:text="Fecha Solicitud"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Ctrl-Shift-S"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:text="Moneda"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Import..."
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:text="Tipo"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Ctrl-E"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow>
+                <TextView
+                    android:layout_column="1"
+                    android:text="Nro. Cuenta"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Ctrl-E"
+                    android:gravity="right"
+                    android:padding="3dip" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

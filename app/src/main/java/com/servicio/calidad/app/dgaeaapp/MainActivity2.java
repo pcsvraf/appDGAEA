@@ -149,7 +149,7 @@ public class MainActivity2 extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatemen
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(MainActivity2.this, profile.class);
+            Intent intent = new Intent(MainActivity2.this, tabla.class);
             startActivity(intent);
         } else if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
