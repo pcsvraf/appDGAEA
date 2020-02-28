@@ -15,7 +15,7 @@
 
             <TableRow>
                 <TextView
-                    android:id="@+id/primer"
+                    android:id="@+id/primero"
                     android:layout_column="1"
                     android:text="ID"
                     android:padding="3dip" />

@@ -24,9 +24,10 @@ public class tabla extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabla);
-        textView = (TextView) findViewById(R.id.primer);
+        textView = (TextView) findViewById(R.id.primero);
         new tabla.DescargarImagen(tabla.this);
         textView.setText(resultado);
+
 
     }
     public static class DescargarImagen extends AsyncTask<String, Void, String> {
