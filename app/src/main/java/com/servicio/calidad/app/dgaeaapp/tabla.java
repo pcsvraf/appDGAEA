@@ -24,6 +24,7 @@ import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -31,7 +32,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class tabla extends AppCompatActivity {
     public static String resultado;//es la variable que tendra la info extraida de la bd
     public static String[] nuevo;
-    public static ArrayList<String>  mStringList;
+    public static List<String>  mStringList;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -105,17 +106,17 @@ public class tabla extends AppCompatActivity {
                 StringBuffer response = new StringBuffer("");
                 String inputLine="";
                 StringBuilder sb = new StringBuilder();
-                mStringList= new ArrayList<String>();
+
                 while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
-                    mStringList.add(inputLine);
+                    mStringList= Arrays.asList(inputLine);
                 }
 
                 System.out.println(response.toString());
-                System.out.println(((Object)response).getClass().getSimpleName());
+                //System.out.println(((Object)response).getClass().getSimpleName());
                 resultado=response.toString();
-                nuevo=mStringList.toArray(new String[0]);
-                System.out.println(mStringList);
+                nuevo=Arrays.copyOf(mStringList.toArray(), mStringList.size(), String[].class);
+                System.out.println(Arrays.toString(nuevo));
                 in.close();
                 httpsURLConnectionn.disconnect();
 
