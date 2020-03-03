@@ -15,15 +15,15 @@
   ~ limitations under the License.
   -->
 <resources>
-    <string-array name="places">
-        <item>SPM</item>
+    <string-array name="nombre">
+        <item>jolaaaa</item>
         <item>GSI</item>
         <item>Calidad</item>
         <item>Tu Opinión</item>
         <item>Sultan Ahmed Mosque</item>
         <item>Table Mountain</item>
     </string-array>
-    <string-array name="place_desc">
+    <string-array name="sistema">
         <item>Sistema de Plan Maestro</item>
         <item>Gestor de Inversiones</item>
         <item>Calidad de Servicio</item>
@@ -31,7 +31,7 @@
         <item>Sultan Ahmed Mosque is mosque locates in Istabul, Turkey</item>
         <item>Table Mountain is mountain and park locates in Cape Town, South Africa.</item>
     </string-array>
-    <string-array name="place_details">
+    <string-array name="detalle">
         <item>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
         nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -75,7 +75,7 @@
         deserunt mollit anim id est laborum.
         </item>
     </string-array>
-    <string-array name="place_locations">
+    <string-array name="lugar">
         <item>8 Rue Scribe, 75009 Paris, France</item>
         <item>Piazza del Capitolo - 50122 Florence</item>
         <item>New York City</item>
@@ -83,7 +83,7 @@
         <item>At Meydanı No:7, 34122 Fatih/İstanbul, Turkey</item>
         <item>Cape Town, South Africa</item>
     </string-array>
-    <array name="place_avator">
+    <array name="avatar">
         <item>@drawable/a_avator</item>
         <item>@drawable/b_avator</item>
         <item>@drawable/c_avator</item>
@@ -91,7 +91,7 @@
         <item>@drawable/e_avator</item>
         <item>@drawable/f_avator</item>
     </array>
-    <array name="places_picture">
+    <array name="imagen">
         <item>@drawable/a</item>
         <item>@drawable/b</item>
         <item>@drawable/c</item>
