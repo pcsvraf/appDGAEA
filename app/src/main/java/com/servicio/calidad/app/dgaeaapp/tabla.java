@@ -31,8 +31,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class tabla extends AppCompatActivity {
     public static String resultado;//es la variable que tendra la info extraida de la bd
-    public static String[] nuevo;
-    public static List<String>  mStringList;
+    public static String [] nuevo;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -46,6 +45,7 @@ public class tabla extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
         new DescargarImagen(tabla.this).execute("","");
+
     }
     @Override
     public boolean onSupportNavigateUp() {
@@ -54,7 +54,7 @@ public class tabla extends AppCompatActivity {
     }
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
-        MainActivity2.Adapter adapter = new MainActivity2.Adapter(getSupportFragmentManager());
+        Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new list2(), "List");
         viewPager.setAdapter(adapter);
     }
@@ -89,13 +89,13 @@ public class tabla extends AppCompatActivity {
 
 
     public static class DescargarImagen extends AsyncTask<String, Void, String> {
-        private WeakReference<Context> context;
+        public WeakReference<Context> context;
 
         public DescargarImagen(Context context){
             this.context = new WeakReference<>(context);
         }
 
-        protected String doInBackground (String... params){
+        public String doInBackground (String... params){
             String get_url="https://pcspucv.cl/tp/extraccion.php";
             try{
 
@@ -109,17 +109,17 @@ public class tabla extends AppCompatActivity {
 
                 while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
-                    mStringList= Arrays.asList(inputLine);
                 }
-
-                System.out.println(response.toString());
-                //System.out.println(((Object)response).getClass().getSimpleName());
                 resultado=response.toString();
-                nuevo=Arrays.copyOf(mStringList.toArray(), mStringList.size(), String[].class);
-                System.out.println(Arrays.toString(nuevo));
+                resultado=resultado.replace("[","");
+                resultado=resultado.replace("]","");
+                nuevo=resultado.split(",");
+                //System.out.println();
+
+                list2.ContentAdapter.mPlaces=nuevo;
+
                 in.close();
                 httpsURLConnectionn.disconnect();
-
 
             }catch (MalformedURLException e){
                 Log.d("MI APP", "se ha utilizado una url de formato incorrecto");
@@ -130,10 +130,9 @@ public class tabla extends AppCompatActivity {
             }
             return resultado;
         }
-        protected void onPostExecute(String resultado){
+
+        public void onPostExecute(String resultado){
             Toast.makeText(context.get(),resultado, Toast.LENGTH_LONG).show();
         }
     }
-
-
 }

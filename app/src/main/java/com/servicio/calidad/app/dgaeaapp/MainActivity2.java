@@ -85,7 +85,7 @@ public class MainActivity2 extends AppCompatActivity {
                         return true;
                     }
                 });
-        // Adding Floating Action Button to bottom right of main view
+        /*// Adding Floating Action Button to bottom right of main view
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class MainActivity2 extends AppCompatActivity {
                 Snackbar.make(v, "Hello Snackbar!",
                         Snackbar.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 
     // Add Fragments to Tabs
@@ -149,7 +149,7 @@ public class MainActivity2 extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatemen
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(MainActivity2.this, tabla.class);
+            Intent intent = new Intent(MainActivity2.this, profile.class);
             startActivity(intent);
         } else if (id == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);

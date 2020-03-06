@@ -61,17 +61,17 @@ public class list2 extends Fragment {
         // Set numbers of List in RecyclerView.
         private static final int LENGTH = 18;
 
-        private final String[] mPlaces;
+        public static String[] mPlaces;
         private final String[] mPlaceDesc;
         private final Drawable[] mPlaceAvators;
 
         public ContentAdapter(Context context) {
             Resources resources = context.getResources();
-            //mPlaces = resources.getStringArray(R.array.nombre);
-            mPlaces= new String[] {"hola", "como", "estas"};
+            mPlaces= new String[] {""};
             mPlaceDesc = resources.getStringArray(R.array.sistema);
             TypedArray a = resources.obtainTypedArray(R.array.avatar);
             mPlaceAvators = new Drawable[a.length()];
+
             for (int i = 0; i < mPlaceAvators.length; i++) {
                 mPlaceAvators[i] = a.getDrawable(i);
             }
