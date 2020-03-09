@@ -38,6 +38,7 @@ import android.widget.TextView;
  * Provides UI for the view with Cards.
  */
 public class CardContentFragment extends Fragment {
+    public static String rosa="GSI";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class CardContentFragment extends Fragment {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView picture;
-        public TextView name;
+        public static TextView name;
         public TextView description;
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_card, parent, false));
@@ -64,7 +65,7 @@ public class CardContentFragment extends Fragment {
                 public void onClick(View v) {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, tabla.class);
-                    intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+                    //intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
                     context.startActivity(intent);
                 }
             });
@@ -78,25 +79,6 @@ public class CardContentFragment extends Fragment {
                             Snackbar.LENGTH_LONG).show();
                 }
             });
-
-            ImageButton favoriteImageButton =
-                    (ImageButton) itemView.findViewById(R.id.favorite_button);
-            favoriteImageButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    Snackbar.make(v, "Added to Favorite",
-                            Snackbar.LENGTH_LONG).show();
-                }
-            });
-
-            ImageButton shareImageButton = (ImageButton) itemView.findViewById(R.id.share_button);
-            shareImageButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    Snackbar.make(v, "Share article",
-                            Snackbar.LENGTH_LONG).show();
-                }
-            });
         }
     }
 
@@ -105,7 +87,7 @@ public class CardContentFragment extends Fragment {
      */
     public static class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
         // Set numbers of Card in RecyclerView.
-        private static final int LENGTH = 18;
+        private static final int LENGTH = 3;
 
         private final String[] mPlaces;
         private final String[] mPlaceDesc;

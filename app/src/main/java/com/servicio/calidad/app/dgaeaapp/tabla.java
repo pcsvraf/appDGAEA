@@ -34,19 +34,27 @@ public class tabla extends AppCompatActivity {
     public static String [] nuevo;
 
     public void onCreate(Bundle savedInstanceState) {
-
+        /*
+        if (CardContentFragment.ViewHolder.name.getText().toString().equals(CardContentFragment.rosa)){
+            System.out.println("coincide"+CardContentFragment.ViewHolder.name.getText().toString());
+        }else{
+            System.out.println("no coincide"+CardContentFragment.ViewHolder.name.getText().toString());
+        }*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabla);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        new DescargarImagen(tabla.this).execute("","");
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
         setupViewPager(viewPager);
-        new DescargarImagen(tabla.this).execute("","");
+
 
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -114,12 +122,12 @@ public class tabla extends AppCompatActivity {
                 resultado=resultado.replace("[","");
                 resultado=resultado.replace("]","");
                 nuevo=resultado.split(",");
-                //System.out.println();
 
                 list2.ContentAdapter.mPlaces=nuevo;
 
-                in.close();
-                httpsURLConnectionn.disconnect();
+                //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
+                //in.close();
+                //httpsURLConnectionn.disconnect();
 
             }catch (MalformedURLException e){
                 Log.d("MI APP", "se ha utilizado una url de formato incorrecto");
@@ -130,9 +138,10 @@ public class tabla extends AppCompatActivity {
             }
             return resultado;
         }
-
-        public void onPostExecute(String resultado){
+        //para mostrar resultado por pantalla
+        /*public void onPostExecute(String resultado){
             Toast.makeText(context.get(),resultado, Toast.LENGTH_LONG).show();
-        }
+        }*/
+
     }
 }

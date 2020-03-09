@@ -1,16 +1,14 @@
 <resources>
-    <string name="app_name">dgaeaApp</string>
+    <string name="app_name">DgaeaApp</string>
     <string name="botonInicio">ACCEDER</string>
     <string name="bienvenida">BIENVENID@ AL PORTAL DGAEA</string>
     <string name="not_log_in">No se pudo iniciar sesión</string>
-    <string name="log_out">Log Out</string>
+    <string name="log_out">Cerrar Sesión</string>
     <string name="login">Iniciar sesión</string>
-    <string name="revoke">Revoke</string>
     <string name="not_close_session">No se pudo cerrar sesión</string>
-    <string name="not_revoke">No se pudo revocar el acceso</string>
     <string name="not_firebase_auth">No se pudo autenticar con Firebase</string>
     <string name="descripcion">Acá podrás encontrar todos los servicios ofrecidos por la Dirección de Asuntos Económicos y Administrativos de la PUCV</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
     <string name="item_title">Palais Garnier</string>
     <string name="item_desc">The Palais Garnier which locates in Paris was built from 1861 for
         the Paris Opera.

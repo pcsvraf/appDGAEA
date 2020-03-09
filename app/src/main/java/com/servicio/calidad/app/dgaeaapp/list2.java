@@ -31,6 +31,7 @@ public class list2 extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return recyclerView;
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
