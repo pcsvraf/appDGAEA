@@ -36,6 +36,7 @@
         <activity android:name=".spm"/>
         <activity android:name=".formulario"/>
         <activity android:name=".tabla"/>
+        <activity android:name=".intermedia"/>
     </application>
 
 </manifest>
