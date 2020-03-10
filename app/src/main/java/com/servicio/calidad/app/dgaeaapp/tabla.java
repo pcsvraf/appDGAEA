@@ -32,6 +32,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class tabla extends AppCompatActivity {
     public static String resultado;//es la variable que tendra la info extraida de la bd
     public static String [] nuevo;
+    public static final String EXTRA= "position";
 
     public void onCreate(Bundle savedInstanceState) {
         /*
@@ -45,6 +46,7 @@ public class tabla extends AppCompatActivity {
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        int postion = getIntent().getIntExtra(EXTRA, 0);
         new DescargarImagen(tabla.this).execute("","");
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);

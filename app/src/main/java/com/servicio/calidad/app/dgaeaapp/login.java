@@ -45,6 +45,8 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
 
+    public static String correo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,7 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     Map<String, Object> map=new HashMap<>();
                     map.put("Nombre", user.getDisplayName());
                     map.put("Email", user.getEmail());
+                    login.correo=user.getEmail();
                     String id=firebaseAuth.getCurrentUser().getUid();
                     databaseReference.child("Users").child(id).setValue(map);
                 }

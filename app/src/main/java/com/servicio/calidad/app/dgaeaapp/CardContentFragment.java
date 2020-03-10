@@ -21,11 +21,13 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +36,19 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
+
 /**
  * Provides UI for the view with Cards.
  */
 public class CardContentFragment extends Fragment {
-    public static String rosa="GSI";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,13 +70,22 @@ public class CardContentFragment extends Fragment {
             picture = (ImageView) itemView.findViewById(R.id.card_image);
             name = (TextView) itemView.findViewById(R.id.card_title);
             description = (TextView) itemView.findViewById(R.id.card_text);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, tabla.class);
-                    //intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
-                    context.startActivity(intent);
+                    System.out.println(getAdapterPosition());
+                    if (getAdapterPosition()==0){
+                        System.out.println("esta en SPM");
+                        System.out.println(login.correo);
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, tabla.class);
+                        intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                        context.startActivity(intent);
+                    }else {
+                        System.out.println("no es SPM");
+                    }
+
                 }
             });
 

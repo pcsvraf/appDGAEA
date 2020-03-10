@@ -56,6 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         // collapsingToolbar.setTitle(getString(R.string.item_title));
 
         int postion = getIntent().getIntExtra(EXTRA_POSITION, 0);
+        //System.out.println(postion);
         Resources resources = getResources();
         String[] places = resources.getStringArray(R.array.places);
         collapsingToolbar.setTitle(places[postion % places.length]);

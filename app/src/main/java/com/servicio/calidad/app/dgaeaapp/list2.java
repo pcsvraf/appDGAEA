@@ -49,6 +49,7 @@ public class list2 extends Fragment {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, DetailActivity.class);
                     intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
+                    //System.out.println(getAdapterPosition());
                     context.startActivity(intent);
                 }
             });
