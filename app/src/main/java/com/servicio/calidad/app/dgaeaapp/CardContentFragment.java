@@ -49,12 +49,15 @@ import javax.net.ssl.HttpsURLConnection;
  * Provides UI for the view with Cards.
  */
 public class CardContentFragment extends Fragment {
+    public static String usuarios;//es la variable que tendra la info extraida de la bd
+    public static String [] nuevito;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         RecyclerView recyclerView = (RecyclerView) inflater.inflate(
                 R.layout.recycler_view, container, false);
         ContentAdapter adapter = new ContentAdapter(recyclerView.getContext());
+        new DescargarImagen().execute();
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -140,6 +143,51 @@ public class CardContentFragment extends Fragment {
         public int getItemCount() {
             return LENGTH;
         }
+    }
+
+    public static class DescargarImagen extends AsyncTask<String, Void, String> {
+
+        public String doInBackground (String... params){
+            String get_url="https://pcspucv.cl/gsi/extraccion.php";
+            try{
+                System.out.println("paso");
+                URL url2=new URL(get_url);
+                HttpsURLConnection httpsURLConnectionn= (HttpsURLConnection) url2.openConnection();
+                httpsURLConnectionn.setRequestMethod("GET");
+                BufferedReader in = new BufferedReader(new InputStreamReader( httpsURLConnectionn.getInputStream()));
+                StringBuffer response = new StringBuffer("");
+                String inputLine="";
+                StringBuilder sb = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                usuarios=response.toString();
+                System.out.println("hola"+usuarios);
+                usuarios=usuarios.replace("[","");
+                usuarios=usuarios.replace("]","");
+                nuevito=usuarios.split(",");
+
+                //list2.ContentAdapter.mPlaces=nuevito;
+
+                //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
+                //in.close();
+                //httpsURLConnectionn.disconnect();
+
+            }catch (MalformedURLException e){
+                Log.d("MI APP", "se ha utilizado una url de formato incorrecto");
+                usuarios ="Se ha producido un error";
+            }catch (IOException e){
+                Log.d("MI APP", "error inesperado");
+                usuarios= "Se ha producido un error";
+            }
+            return usuarios;
+        }
+        //para mostrar resultado por pantalla
+        /*public void onPostExecute(String resultado){
+            Toast.makeText(context.get(),resultado, Toast.LENGTH_LONG).show();
+        }*/
+
     }
 }
 
