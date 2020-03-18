@@ -47,7 +47,7 @@ public class list2 extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, DetailActivity.class);
+                    Intent intent = new Intent(context, peticion.class);
                     intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
                     //System.out.println(getAdapterPosition());
                     context.startActivity(intent);
@@ -87,7 +87,7 @@ public class list2 extends Fragment {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.avator.setImageDrawable(mPlaceAvators[position % mPlaceAvators.length]);
-            holder.name.setText(mPlaces[position % mPlaces.length]);
+            holder.name.setText("ID: "+mPlaces[position % mPlaces.length]);
             holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
         }
 

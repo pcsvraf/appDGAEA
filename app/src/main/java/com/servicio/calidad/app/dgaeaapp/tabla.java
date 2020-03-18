@@ -32,7 +32,9 @@ import javax.net.ssl.HttpsURLConnection;
 public class tabla extends AppCompatActivity {
     public static String resultado;//es la variable que tendra la info extraida de la bd
     public static String [] nuevo;
+    public static String [] nuevo2;
     public static final String EXTRA= "position";
+    public static String get_url;
 
     public void onCreate(Bundle savedInstanceState) {
         /*
@@ -106,7 +108,13 @@ public class tabla extends AppCompatActivity {
         }
 
         public String doInBackground (String... params){
-            String get_url="https://pcspucv.cl/tp/extraccion.php";
+            if (CardContentFragment.sistema==0){
+                get_url="https://pcspucv.cl/tp/extraccion.php";
+            }else if(CardContentFragment.sistema==1){
+                get_url="https://pcspucv.cl/gsi/extraccion.php";
+            }else{
+                get_url="https://pcspucv.cl/tp/extraccion.php";
+            }
             try{
 
                 URL url2=new URL(get_url);
@@ -121,10 +129,11 @@ public class tabla extends AppCompatActivity {
                     response.append(inputLine);
                 }
                 resultado=response.toString();
+
                 resultado=resultado.replace("[","");
                 resultado=resultado.replace("]","");
+                resultado=resultado.replace("\"","");
                 nuevo=resultado.split(",");
-
                 list2.ContentAdapter.mPlaces=nuevo;
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar

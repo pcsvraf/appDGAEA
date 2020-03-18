@@ -51,6 +51,8 @@ import javax.net.ssl.HttpsURLConnection;
 public class CardContentFragment extends Fragment {
     public static String usuarios;//es la variable que tendra la info extraida de la bd
     public static String [] nuevito;
+    public static int sistema;
+    public static Boolean ingreso=true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,6 +80,7 @@ public class CardContentFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     System.out.println(getAdapterPosition());
+                    sistema=getAdapterPosition();
                     if (getAdapterPosition()==0){
                         System.out.println("esta en SPM");
                         System.out.println(login.correo);
@@ -85,8 +88,22 @@ public class CardContentFragment extends Fragment {
                         Intent intent = new Intent(context, tabla.class);
                         intent.putExtra(tabla.EXTRA, getAdapterPosition());
                         context.startActivity(intent);
-                    }else {
-                        System.out.println("no es SPM");
+                    }else if (getAdapterPosition()==1){
+                        System.out.println("paso primer if");
+                        System.out.println(ingreso);
+                        if (ingreso==true){
+                            System.out.println("esta en GSI");
+                            Context context = v.getContext();
+                            Intent intent = new Intent(context, tabla.class);
+                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            context.startActivity(intent);
+                        }else {
+                            System.out.println(login.correo);
+                            Context context = v.getContext();
+                            Intent intent = new Intent(context, MainActivity2.class);
+                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            context.startActivity(intent);
+                        }
                     }
 
                 }
@@ -148,9 +165,8 @@ public class CardContentFragment extends Fragment {
     public static class DescargarImagen extends AsyncTask<String, Void, String> {
 
         public String doInBackground (String... params){
-            String get_url="https://pcspucv.cl/gsi/extraccion.php";
+            String get_url="https://pcspucv.cl/gsi/usuarios.php";
             try{
-                System.out.println("paso");
                 URL url2=new URL(get_url);
                 HttpsURLConnection httpsURLConnectionn= (HttpsURLConnection) url2.openConnection();
                 httpsURLConnectionn.setRequestMethod("GET");
@@ -163,11 +179,22 @@ public class CardContentFragment extends Fragment {
                     response.append(inputLine);
                 }
                 usuarios=response.toString();
-                System.out.println("hola"+usuarios);
                 usuarios=usuarios.replace("[","");
                 usuarios=usuarios.replace("]","");
                 nuevito=usuarios.split(",");
 
+                for (int i = 0; i < nuevito.length; i++) {
+                    String email='"'+login.correo+'"';
+                    System.out.println(email);
+                    if (nuevito[i].equals(email)){
+                        ingreso=true;
+                        System.out.println("true");
+                        break;
+                    }else{
+                        ingreso=false;
+                        System.out.println("false");
+                    }
+                }
                 //list2.ContentAdapter.mPlaces=nuevito;
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar

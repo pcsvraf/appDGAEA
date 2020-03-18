@@ -23,6 +23,8 @@
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
     <string name="email">Nombre de la Obra</string>
     <string name="password">Password</string>
+    <string name="aprobar">Aprobar</string>
+    <string name="rechazar">Rechazar</string>
     <string name="validate">Validate</string>
     <string name="mandatory">This field is mandatory</string>
 </resources>

@@ -37,6 +37,7 @@
         <activity android:name=".formulario"/>
         <activity android:name=".tabla"/>
         <activity android:name=".intermedia"/>
+        <activity android:name=".peticion"/>
     </application>
 
 </manifest>
