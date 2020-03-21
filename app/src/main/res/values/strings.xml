@@ -21,6 +21,11 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+    <string name="texto1">Institución:</string>
+    <string name="texto2">Tipo Solicitud:</string>
+    <string name="texto3">Cuenta Cheque:</string>
+    <string name="texto4">Descripción:</string>
+    <string name="texto">Monto:</string>
     <string name="email">Nombre de la Obra</string>
     <string name="password">Password</string>
     <string name="aprobar">Aprobar</string>

@@ -47,30 +47,71 @@
                 android:hint="@string/email"
                 app:hintTextAppearance="@style/AppTheme.FloatingLabel">
 
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextEmail"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/titulo"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:theme="@style/AppTheme.EditText"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/text_input_layout_pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/form_margin_top"
-                android:hint="@string/password"
-                app:passwordToggleEnabled="false"
-                app:errorTextAppearance="@style/AppTheme.EditTextError">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="@string/texto" />
+                <TextView
+                    android:id="@+id/text"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/email" />
+                <TextView
+                    android:id="@+id/titulo1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="@string/texto1" />
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/email" />
+                <TextView
+                    android:id="@+id/titulo2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="@string/texto2" />
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/email" />
+                <TextView
+                    android:id="@+id/titulo3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="@string/texto3" />
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/email" />
+                <TextView
+                    android:id="@+id/titulo4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="@string/texto4" />
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="20dp"
+                    android:text="@string/email" />
 
             </android.support.design.widget.TextInputLayout>
 

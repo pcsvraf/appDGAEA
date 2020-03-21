@@ -21,6 +21,7 @@ import org.json.JSONArray;
  * Provides UI for the view with List.
  */
 public class list2 extends Fragment {
+    public static int idPeticion;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class list2 extends Fragment {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    idPeticion=getAdapterPosition();
                     Context context = v.getContext();
                     Intent intent = new Intent(context, peticion.class);
                     intent.putExtra(DetailActivity.EXTRA_POSITION, getAdapterPosition());
