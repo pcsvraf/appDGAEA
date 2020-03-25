@@ -17,6 +17,7 @@
 package com.servicio.calidad.app.dgaeaapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -25,6 +26,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -35,6 +37,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,6 +73,7 @@ public class CardContentFragment extends Fragment {
         public ImageView picture;
         public static TextView name;
         public TextView description;
+        public String alerta="No tiene permisos";
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_card, parent, false));
             picture = (ImageView) itemView.findViewById(R.id.card_image);
@@ -82,27 +86,36 @@ public class CardContentFragment extends Fragment {
                     System.out.println(getAdapterPosition());
                     sistema=getAdapterPosition();
                     if (getAdapterPosition()==0){
-                        System.out.println("esta en SPM");
-                        System.out.println(login.correo);
                         Context context = v.getContext();
                         Intent intent = new Intent(context, tabla.class);
                         intent.putExtra(tabla.EXTRA, getAdapterPosition());
                         context.startActivity(intent);
                     }else if (getAdapterPosition()==1){
-                        System.out.println("paso primer if");
-                        System.out.println(ingreso);
                         if (ingreso==true){
-                            System.out.println("esta en GSI");
                             Context context = v.getContext();
                             Intent intent = new Intent(context, tabla.class);
                             intent.putExtra(tabla.EXTRA, getAdapterPosition());
                             context.startActivity(intent);
                         }else {
-                            System.out.println(login.correo);
-                            Context context = v.getContext();
-                            Intent intent = new Intent(context, MainActivity2.class);
-                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
-                            context.startActivity(intent);
+                            final Context context = v.getContext();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("Aviso");
+                            builder.setMessage("No tiene los permisos para acceder al sistema");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    dialog.cancel();
+                                    Intent intent = new Intent(context, MainActivity2.class);
+                                    intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                                    context.startActivity(intent);
+                                }
+                            }).show();
+                            //builder.create();
+                            //builder.show();
+
+                            //Intent intent = new Intent(context, MainActivity2.class);
+                            //intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            //context.startActivity(intent);
                         }
                     }
 

@@ -63,7 +63,7 @@ public class list2 extends Fragment {
      */
     public static class ContentAdapter extends RecyclerView.Adapter<ViewHolder> {
         // Set numbers of List in RecyclerView.
-        private static final int LENGTH = 18;
+        public static int LENGTH = 18;
 
         public static String[] mPlaces;
         private final String[] mPlaceDesc;

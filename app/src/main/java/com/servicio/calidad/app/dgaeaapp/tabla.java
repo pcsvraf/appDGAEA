@@ -35,6 +35,7 @@ public class tabla extends AppCompatActivity {
     public static String [] nuevo2;
     public static final String EXTRA= "position";
     public static String get_url;
+    public static Integer total;
 
     public void onCreate(Bundle savedInstanceState) {
         /*
@@ -111,7 +112,7 @@ public class tabla extends AppCompatActivity {
             if (CardContentFragment.sistema==0){
                 get_url="https://pcspucv.cl/tp/extraccion.php";
             }else if(CardContentFragment.sistema==1){
-                get_url="https://pcspucv.cl/gsi/extraccion.php";
+                get_url="https://pcspucv.cl/tp/extraccion2.php";
             }else{
                 get_url="https://pcspucv.cl/tp/extraccion.php";
             }
@@ -134,6 +135,8 @@ public class tabla extends AppCompatActivity {
                 resultado=resultado.replace("]","");
                 resultado=resultado.replace("\"","");
                 nuevo=resultado.split(",");
+                total=nuevo.length;
+                list2.ContentAdapter.LENGTH=total;
                 list2.ContentAdapter.mPlaces=nuevo;
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
