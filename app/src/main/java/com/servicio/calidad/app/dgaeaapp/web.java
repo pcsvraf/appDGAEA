@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -39,7 +40,8 @@ public class web extends AppCompatActivity {
 
         webview =(WebView)findViewById(R.id.webView);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
+        progressBar.setVisibility(View.VISIBLE);
+        webview.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
         webview.getSettings().setUserAgentString(USER_AGENT);
@@ -55,6 +57,8 @@ public class web extends AppCompatActivity {
         }else if(MainActivity2.sitio=="tuopinion"){
             url="http://www.tuopinion.pucv.cl/";
         }
+        progressBar.setVisibility(View.GONE);
+        webview.setVisibility(View.VISIBLE);
         webview.loadUrl(url);
     }
 

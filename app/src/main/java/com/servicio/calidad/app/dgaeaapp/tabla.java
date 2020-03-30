@@ -133,7 +133,6 @@ public class tabla extends AppCompatActivity {
                 }
                 resultado=response.toString();
                 //total=0;
-                System.out.println("chao");
                 resultado=resultado.replace("[","");
                 resultado=resultado.replace("]","");
                 resultado=resultado.replace("\"","");
@@ -141,8 +140,6 @@ public class tabla extends AppCompatActivity {
                 total=nuevo.length;
                 list2.ContentAdapter.LENGTH=total;
                 list2.ContentAdapter.mPlaces=nuevo;
-
-
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
                 //in.close();

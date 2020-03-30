@@ -52,6 +52,7 @@ public class peticion extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        petDbHelper conn= new petDbHelper(this, "bd_peticion", null, 1);
         new peticion.mostrarDatos(peticion.this).execute(String.valueOf(list2.idPeticion));
 
         final Button boton_aprobar= findViewById(R.id.buttonAprobar);
