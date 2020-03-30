@@ -16,16 +16,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/pucv"
             android:icon="@drawable/ic_home_black_24dp"
             android:tint="@color/button_grey"
-            android:title="One" />
+            android:title="Portal PUCV" />
         <item
-            android:icon="@drawable/ic_favorite_black_24dp"
+            android:id="@+id/dgaea"
+            android:icon="@drawable/ic_home_black_24dp"
             android:tint="@color/button_grey"
-            android:title="Two" />
+            android:title="Portal DGAEA" />
         <item
+            android:id="@+id/buses"
             android:icon="@drawable/ic_bookmark_border_black_24dp"
             android:tint="@color/button_grey"
-            android:title="Three" />
+            android:title="Buses PUCV" />
+        <item
+            android:id="@+id/tuopinion"
+            android:icon="@drawable/ic_bookmark_border_black_24dp"
+            android:tint="@color/button_grey"
+            android:title="Tu Opinión" />
     </group>
 </menu>

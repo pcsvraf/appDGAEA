@@ -5,6 +5,7 @@
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@drawable/app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -38,6 +39,7 @@
         <activity android:name=".tabla"/>
         <activity android:name=".intermedia"/>
         <activity android:name=".peticion"/>
+        <activity android:name=".web"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.servicio.calidad.app.dgaeaapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,6 +32,9 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -63,6 +67,8 @@ public class peticion extends AppCompatActivity {
             public void onClick(View view) {
                 String estado=boton_aprobar.getText().toString();
                 new actualizarPeticion(peticion.this).execute(estado,String.valueOf(list2.idPeticion));
+                Intent intent = new Intent(peticion.this, tabla.class);
+                startActivity(intent);
             }
         });
         boton_rechazar.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +76,8 @@ public class peticion extends AppCompatActivity {
             public void onClick(View view) {
                 String estado=boton_rechazar.getText().toString();
                 new actualizarPeticion(peticion.this).execute(estado,String.valueOf(list2.idPeticion));
+                Intent intent = new Intent(peticion.this, tabla.class);
+                startActivity(intent);
             }
         });
     }
@@ -89,6 +97,10 @@ public class peticion extends AppCompatActivity {
         protected String doInBackground (String... params){
             String registrar_url="https://pcspucv.cl/tp/actualizar.php";
             String resultado;
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            String fecha =dateFormat.format(date);
+            fecha= fecha.replace("/", "-");
 
             try{
 
@@ -104,7 +116,6 @@ public class peticion extends AppCompatActivity {
                 String idObra=list2.ContentAdapter.mPlaces[Integer.valueOf(params[1])];
                 System.out.println(idObra+"id");
                 if(params[0].equals("Aprobar")){
-                    System.out.println("hola");
                     estado="2";
 
                 }else{
@@ -112,7 +123,8 @@ public class peticion extends AppCompatActivity {
                 }
 
                 String data= URLEncoder.encode("estado", "UTF-8")+"="+ URLEncoder.encode(estado, "UTF-8")
-                        + "&"+ URLEncoder.encode("idObra", "UTF-8")+"="+ URLEncoder.encode(idObra, "UTF-8");
+                        + "&"+ URLEncoder.encode("idObra", "UTF-8")+"="+ URLEncoder.encode(idObra, "UTF-8")
+                        + "&"+ URLEncoder.encode("fecha", "UTF-8")+"="+ URLEncoder.encode(fecha, "UTF-8");
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();

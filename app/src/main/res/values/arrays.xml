@@ -16,8 +16,8 @@
   -->
 <resources>
     <string-array name="places">
-        <item>Spm</item>
-        <item>Gsi</item>
+        <item>SPM</item>
+        <item>GSI</item>
         <item>Calidad</item>
     </string-array>
     <string-array name="place_desc">

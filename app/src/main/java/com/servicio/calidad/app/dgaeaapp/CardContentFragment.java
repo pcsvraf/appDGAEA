@@ -83,7 +83,6 @@ public class CardContentFragment extends Fragment {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println(getAdapterPosition());
                     sistema=getAdapterPosition();
                     if (getAdapterPosition()==0){
                         Context context = v.getContext();
@@ -127,8 +126,40 @@ public class CardContentFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(v, "Action is pressed",
-                            Snackbar.LENGTH_LONG).show();
+                    sistema=getAdapterPosition();
+                    if (getAdapterPosition()==0){
+                        Context context = v.getContext();
+                        Intent intent = new Intent(context, tabla.class);
+                        intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                        context.startActivity(intent);
+                    }else if (getAdapterPosition()==1){
+                        if (ingreso==true){
+                            Context context = v.getContext();
+                            Intent intent = new Intent(context, tabla.class);
+                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            context.startActivity(intent);
+                        }else {
+                            final Context context = v.getContext();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("Aviso");
+                            builder.setMessage("No tiene los permisos para acceder al sistema");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    dialog.cancel();
+                                    Intent intent = new Intent(context, MainActivity2.class);
+                                    intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                                    context.startActivity(intent);
+                                }
+                            }).show();
+                            //builder.create();
+                            //builder.show();
+
+                            //Intent intent = new Intent(context, MainActivity2.class);
+                            //intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            //context.startActivity(intent);
+                        }
+                    }
                 }
             });
         }

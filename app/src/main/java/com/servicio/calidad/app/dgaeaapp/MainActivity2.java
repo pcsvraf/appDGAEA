@@ -43,6 +43,7 @@ import java.util.List;
 public class MainActivity2 extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    public static String sitio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,30 @@ public class MainActivity2 extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         // Set item in checked state
-                        menuItem.setChecked(true);
+                        //menuItem.setChecked(true);
+                        switch (menuItem.getItemId()) {
+                            case R.id.pucv:
+                                sitio="pucv";
+                                Intent intent = new Intent(MainActivity2.this, web.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.dgaea:
+                                sitio="dgaea";
+                                Intent intent2 = new Intent(MainActivity2.this, web.class);
+                                startActivity(intent2);
+                                return true;
+                            case R.id.buses:
+                                sitio="buses";
+                                Intent intent3 = new Intent(MainActivity2.this, web.class);
+                                startActivity(intent3);
+                                return true;
+                            case R.id.tuopinion:
+                                sitio="tuopinion";
+                                Intent intent4 = new Intent(MainActivity2.this, web.class);
+                                startActivity(intent4);
+                                return true;
+
+                        }
 
                         // TODO: handle navigation
 

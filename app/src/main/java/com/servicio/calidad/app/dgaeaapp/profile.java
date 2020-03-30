@@ -26,7 +26,6 @@ public class profile extends AppCompatActivity implements GoogleApiClient.OnConn
     private ImageView photoImageView;
     private TextView nameTextView;
     private TextView emailTextView;
-    private TextView idTextView;
 
     private GoogleApiClient googleApiClient;
 
@@ -46,8 +45,6 @@ public class profile extends AppCompatActivity implements GoogleApiClient.OnConn
         photoImageView = (ImageView) findViewById(R.id.photoImageView);
         nameTextView = (TextView) findViewById(R.id.nameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
-        idTextView = (TextView) findViewById(R.id.idTextView);
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -80,7 +77,6 @@ public class profile extends AppCompatActivity implements GoogleApiClient.OnConn
     private void setUserData(FirebaseUser user) {
         nameTextView.setText(user.getDisplayName());
         emailTextView.setText(user.getEmail());
-        idTextView.setText(user.getUid());
         Glide.with(this).load(user.getPhotoUrl()).into(photoImageView);
     }
 

@@ -36,6 +36,7 @@ public class tabla extends AppCompatActivity {
     public static final String EXTRA= "position";
     public static String get_url;
     public static Integer total;
+    public static TextView datos;
 
     public void onCreate(Bundle savedInstanceState) {
         /*
@@ -51,6 +52,7 @@ public class tabla extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         int postion = getIntent().getIntExtra(EXTRA, 0);
         new DescargarImagen(tabla.this).execute("","");
+        datos=findViewById(R.id.datos);
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -130,7 +132,8 @@ public class tabla extends AppCompatActivity {
                     response.append(inputLine);
                 }
                 resultado=response.toString();
-
+                //total=0;
+                System.out.println("chao");
                 resultado=resultado.replace("[","");
                 resultado=resultado.replace("]","");
                 resultado=resultado.replace("\"","");
@@ -138,6 +141,8 @@ public class tabla extends AppCompatActivity {
                 total=nuevo.length;
                 list2.ContentAdapter.LENGTH=total;
                 list2.ContentAdapter.mPlaces=nuevo;
+
+
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
                 //in.close();
