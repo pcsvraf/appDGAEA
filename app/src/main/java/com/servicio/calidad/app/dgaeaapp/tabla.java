@@ -132,14 +132,20 @@ public class tabla extends AppCompatActivity {
                     response.append(inputLine);
                 }
                 resultado=response.toString();
-                //total=0;
-                resultado=resultado.replace("[","");
-                resultado=resultado.replace("]","");
-                resultado=resultado.replace("\"","");
-                nuevo=resultado.split(",");
-                total=nuevo.length;
-                list2.ContentAdapter.LENGTH=total;
-                list2.ContentAdapter.mPlaces=nuevo;
+                if (resultado.equals("[]")){
+                    System.out.println("no hay resultados");
+                    total=0;
+                    list2.ContentAdapter.LENGTH=total+1;
+                }else{
+                    resultado=resultado.replace("[","");
+                    resultado=resultado.replace("]","");
+                    resultado=resultado.replace("\"","");
+                    nuevo=resultado.split(",");
+                    total=nuevo.length;
+                    list2.ContentAdapter.LENGTH=total;
+                    list2.ContentAdapter.mPlaces=nuevo;
+                }
+
 
                 //se comenta para que no se cierre la conexion de los datos, y asi evitar retraso en mostrar
                 //in.close();

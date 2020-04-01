@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="@string/texto" />
+                    android:text="@string/texto1" />
                 <TextView
                     android:id="@+id/text"
                     android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="@string/texto1" />
+                    android:text="@string/texto2" />
                 <TextView
                     android:id="@+id/text1"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="@string/texto2" />
+                    android:text="@string/texto3" />
                 <TextView
                     android:id="@+id/text2"
                     android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="@string/texto3" />
+                    android:text="@string/texto4" />
                 <TextView
                     android:id="@+id/text3"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="@string/texto4" />
+                    android:text="@string/texto" />
                 <TextView
                     android:id="@+id/text4"
                     android:layout_height="wrap_content"

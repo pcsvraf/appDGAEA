@@ -88,9 +88,15 @@ public class list2 extends Fragment {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.avator.setImageDrawable(mPlaceAvators[position % mPlaceAvators.length]);
-            holder.name.setText("ID: "+mPlaces[position % mPlaces.length]);
-            holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+
+            if(tabla.total==0){
+                holder.name.setText("No hay resultados"+mPlaces[position % mPlaces.length]);
+            }else{
+                holder.avator.setImageDrawable(mPlaceAvators[position % mPlaceAvators.length]);
+                holder.name.setText("ID: "+mPlaces[position % mPlaces.length]);
+                holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+            }
+
         }
 
         @Override

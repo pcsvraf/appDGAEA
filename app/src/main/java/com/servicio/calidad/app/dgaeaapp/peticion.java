@@ -1,7 +1,10 @@
 package com.servicio.calidad.app.dgaeaapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -52,8 +55,8 @@ public class peticion extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        petDbHelper conn= new petDbHelper(this, "bd_peticion", null, 1);
         new peticion.mostrarDatos(peticion.this).execute(String.valueOf(list2.idPeticion));
+
 
         final Button boton_aprobar= findViewById(R.id.buttonAprobar);
         final Button boton_rechazar= findViewById(R.id.buttonRechazar);
@@ -62,6 +65,7 @@ public class peticion extends AppCompatActivity {
         texto2=findViewById(R.id.text2);
         texto3=findViewById(R.id.text3);
         texto4=findViewById(R.id.text4);
+
 
         boton_aprobar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +183,6 @@ public class peticion extends AppCompatActivity {
                 BufferedWriter  bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, Charset.forName("UTF-8")));
 
                 String id= list2.ContentAdapter.mPlaces[Integer.valueOf(params[0])];
-                System.out.println(id+"va el id");
 
                 String data= URLEncoder.encode("idObra", "UTF-8")+"="+ URLEncoder.encode(id, "UTF-8");
 
@@ -225,8 +228,42 @@ public class peticion extends AppCompatActivity {
             texto2.setText(dato2);
             texto3.setText(dato3);
             texto4.setText(dato4);
+            petDbHelper conn= new petDbHelper(context.get(), "bd_peticion", null, 1);
+            SQLiteDatabase db= conn.getWritableDatabase();
+            ContentValues values= new ContentValues();
+            values.put("id", Integer.valueOf(list2.idPeticion));
+            values.put("institucion", dato);
+            values.put("tipoSolicitud", dato1);
+            values.put("cuentaCheque", dato2);
+            values.put("descripcion", dato3);
+            values.put("monto", Integer.valueOf(dato4));
+
+            Long idResultante= db.insert("peticion", "id", values);
+            Toast.makeText(context.get(),"id Peticion: "+ idResultante, Toast.LENGTH_SHORT).show();
+            SQLiteDatabase dbb=conn.getReadableDatabase();
+            String[] parametros={String.valueOf(list2.idPeticion)};
+            String[] campos={"institucion", "tipoSolicitud", "cuentaCheque", "descripcion", "monto"};
+
+            Cursor cursor= db.query("peticion",campos, "id"+"=?", parametros, null,null, null);
+            cursor.moveToFirst();
+            System.out.println(cursor.getString(0));
         }
 
+    }
+
+    public void copiaBd(){
+        petDbHelper conn= new petDbHelper(this, "bd_peticion", null, 1);
+        SQLiteDatabase db= conn.getWritableDatabase();
+        ContentValues values= new ContentValues();
+        values.put("id", Integer.valueOf(list2.idPeticion));
+        values.put("institucion", dato);
+        values.put("tipoSolicitud", dato1);
+        values.put("cuentaCheque", dato2);
+        values.put("descripcion", dato3);
+        values.put("monto", Integer.valueOf(dato4));
+
+        Long idResultante= db.insert("peticion", "id", values);
+        Toast.makeText(getApplicationContext(),"id Peticion: "+ idResultante, Toast.LENGTH_SHORT).show();
     }
 
 }

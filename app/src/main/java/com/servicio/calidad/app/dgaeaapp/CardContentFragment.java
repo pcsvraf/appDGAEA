@@ -229,14 +229,11 @@ public class CardContentFragment extends Fragment {
 
                 for (int i = 0; i < nuevito.length; i++) {
                     String email='"'+login.correo+'"';
-                    System.out.println(email);
                     if (nuevito[i].equals(email)){
                         ingreso=true;
-                        System.out.println("true");
                         break;
                     }else{
                         ingreso=false;
-                        System.out.println("false");
                     }
                 }
                 //list2.ContentAdapter.mPlaces=nuevito;

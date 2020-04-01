@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 
 public class petDbHelper extends SQLiteOpenHelper {
 
-    final String CREAR_TABLA_PETICION= "CREATE TABLE peticion(id INTEGER, institucion TEXT, tipoMoneda TEXT, fechaSolicitud TEXT, " +
-            "estado TEXT, tipoSolicitud TEXT, cuentaCheque TEXT, descripcion TEXT, monto INTEGER)";
+    final String CREAR_TABLA_PETICION= "CREATE TABLE peticion(id INTEGER, institucion TEXT, " +
+            "tipoSolicitud TEXT, cuentaCheque TEXT, descripcion TEXT, monto INTEGER)";
 
     public petDbHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

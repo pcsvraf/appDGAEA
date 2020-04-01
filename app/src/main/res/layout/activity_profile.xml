@@ -88,9 +88,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/log_out"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                app:srcCompat="@drawable/button"
                 android:onClick="logOut"
                 android:id="@+id/button2" />
+
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
