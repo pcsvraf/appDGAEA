@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.servicio.calidad.app.dgaeaapp.spm">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -52,83 +50,120 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/texto1" />
                 <TextView
                     android:id="@+id/text"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/email" />
                 <TextView
                     android:id="@+id/titulo1"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/texto2" />
                 <TextView
                     android:id="@+id/text1"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/email" />
                 <TextView
                     android:id="@+id/titulo2"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/texto3" />
                 <TextView
                     android:id="@+id/text2"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/email" />
                 <TextView
                     android:id="@+id/titulo3"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/texto4" />
                 <TextView
                     android:id="@+id/text3"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/email" />
                 <TextView
                     android:id="@+id/titulo4"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
                     android:text="@string/texto" />
                 <TextView
                     android:id="@+id/text4"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat"
                     android:textSize="20dp"
                     android:text="@string/email" />
 
             </android.support.design.widget.TextInputLayout>
 
-            <Button
-                android:id="@+id/buttonAprobar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/form_margin_top"
-                android:text="@string/aprobar"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/menuLinearLayout"
+            android:layout_below="@+id/midTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
             <Button
                 android:id="@+id/buttonRechazar"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/form_margin_top"
-                android:text="@string/rechazar"/>
+                android:background="@drawable/rechazar"
+                android:drawableRight="@drawable/baseline_thumb_down_white_18dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/rechazar"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:scaleType="fitStart"
+                android:layout_weight="1"/>
 
+            <Button
+                android:id="@+id/buttonAprobar"
+                android:layout_width="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/form_margin_top"
+                android:background="@drawable/button"
+                android:drawableRight="@drawable/baseline_thumb_up_white_18dp"
+                android:fontFamily="@font/open_sans"
+                android:scaleType="fitEnd"
+                android:text="@string/aprobar"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
         </LinearLayout>
+
 
 
     </LinearLayout>

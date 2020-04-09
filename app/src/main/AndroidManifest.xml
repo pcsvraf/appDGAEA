@@ -40,6 +40,10 @@
         <activity android:name=".intermedia"/>
         <activity android:name=".peticion"/>
         <activity android:name=".web"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

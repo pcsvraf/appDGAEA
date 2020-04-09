@@ -73,7 +73,6 @@ public class CardContentFragment extends Fragment {
         public ImageView picture;
         public static TextView name;
         public TextView description;
-        public String alerta="No tiene permisos";
         public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_card, parent, false));
             picture = (ImageView) itemView.findViewById(R.id.card_image);
@@ -121,47 +120,6 @@ public class CardContentFragment extends Fragment {
                 }
             });
 
-            // Adding Snackbar to Action Button inside card
-            Button button = (Button)itemView.findViewById(R.id.action_button);
-            button.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    sistema=getAdapterPosition();
-                    if (getAdapterPosition()==0){
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, tabla.class);
-                        intent.putExtra(tabla.EXTRA, getAdapterPosition());
-                        context.startActivity(intent);
-                    }else if (getAdapterPosition()==1){
-                        if (ingreso==true){
-                            Context context = v.getContext();
-                            Intent intent = new Intent(context, tabla.class);
-                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
-                            context.startActivity(intent);
-                        }else {
-                            final Context context = v.getContext();
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                            builder.setTitle("Aviso");
-                            builder.setMessage("No tiene los permisos para acceder al sistema");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                    dialog.cancel();
-                                    Intent intent = new Intent(context, MainActivity2.class);
-                                    intent.putExtra(tabla.EXTRA, getAdapterPosition());
-                                    context.startActivity(intent);
-                                }
-                            }).show();
-                            //builder.create();
-                            //builder.show();
-
-                            //Intent intent = new Intent(context, MainActivity2.class);
-                            //intent.putExtra(tabla.EXTRA, getAdapterPosition());
-                            //context.startActivity(intent);
-                        }
-                    }
-                }
-            });
         }
     }
 

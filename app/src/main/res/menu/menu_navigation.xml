@@ -22,7 +22,7 @@
             android:title="Portal PUCV" />
         <item
             android:id="@+id/dgaea"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/baseline_work_black_18dp"
             android:tint="@color/button_grey"
             android:title="Portal DGAEA" />
         <item

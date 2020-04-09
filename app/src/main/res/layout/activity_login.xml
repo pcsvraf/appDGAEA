@@ -3,8 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/background"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#FF000000">
 
+    <!--
+    android:background="@drawable/gradiente"
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,39 +16,108 @@
         android:contentDescription="fondo"
         android:cropToPadding="true"
         android:scaleType="center"
-        android:src="@drawable/fondo" />
+        android:src="@drawable/fondo" />-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/holi"
+        android:alpha="0.3"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:scaleType="centerCrop"
+        android:src="@drawable/holi" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="center"
+        android:scaleType="fitCenter"
+        android:maxWidth="192dp"
+        android:maxHeight="82dp"
+        android:adjustViewBounds="true"
         android:contentDescription="logo"
         android:layout_marginTop="30dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/prueba" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="@string/bienvenida"
         android:textColor="#ffffff"
         android:textSize="22dp"
-        android:textStyle="bold"
-        android:layout_marginTop="180dp"/>
+        android:textStyle="bold" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:fontFamily="@font/montserrat"
         android:text="@string/descripcion"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:layout_marginTop="230dp"/>
+        android:layout_marginTop="210dp"/>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="logo"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
+        android:scaleType="fitStart"
+        android:alpha="0.9"
+        android:paddingLeft="46dp"
+        android:src="@drawable/home" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="logo"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
+        android:scaleType="fitCenter"
+        android:alpha="0.9"
+        android:src="@drawable/work" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="logo"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
+        android:scaleType="fitEnd"
+        android:alpha="0.9"
+        android:paddingRight="46dp"
+        android:src="@drawable/bus" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="logo"
+        android:maxWidth="70dp"
+        android:maxHeight="70dp"
+        android:scaleType="fitCenter"
+        android:alpha="0.9"
+        android:src="@drawable/assignment" />
 
     <com.google.android.gms.common.SignInButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="550dp"
         android:id="@+id/sign_in_button"
         android:paddingRight="50dp"
         android:paddingLeft="50dp"

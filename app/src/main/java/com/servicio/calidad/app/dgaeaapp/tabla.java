@@ -132,9 +132,9 @@ public class tabla extends AppCompatActivity {
                     response.append(inputLine);
                 }
                 resultado=response.toString();
+                total=0;
                 if (resultado.equals("[]")){
                     System.out.println("no hay resultados");
-                    total=0;
                     list2.ContentAdapter.LENGTH=total+1;
                 }else{
                     resultado=resultado.replace("[","");
