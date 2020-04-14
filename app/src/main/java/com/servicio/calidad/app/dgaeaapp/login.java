@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,12 +46,15 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
 
+    public static String prueba2;
+
     public static String correo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -97,6 +101,46 @@ public class login extends AppCompatActivity implements GoogleApiClient.OnConnec
         };
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        final ImageView pucv= (ImageView) findViewById(R.id.pucv);
+        final ImageView dgaea= (ImageView) findViewById(R.id.dgaea);
+        final ImageView buses= (ImageView) findViewById(R.id.buses);
+        final ImageView tuopinion= (ImageView) findViewById(R.id.tuopinion);
+
+        pucv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prueba2="pucv";
+                Intent myintent = new Intent(login.this,web.class);
+                startActivity(myintent);
+            }
+        });
+
+        dgaea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prueba2="dgaea";
+                Intent myintent = new Intent(login.this,web.class);
+                startActivity(myintent);
+            }
+        });
+
+        buses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prueba2="buses";
+                Intent myintent = new Intent(login.this,web.class);
+                startActivity(myintent);
+            }
+        });
+
+        tuopinion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prueba2="tuopinion";
+                Intent myintent = new Intent(login.this,web.class);
+                startActivity(myintent);
+            }
+        });
     }
 
     @Override

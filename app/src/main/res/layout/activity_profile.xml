@@ -88,7 +88,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/log_out"
-                app:srcCompat="@drawable/button"
+                android:background="@drawable/button_general"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
                 android:onClick="logOut"
                 android:id="@+id/button2" />
 

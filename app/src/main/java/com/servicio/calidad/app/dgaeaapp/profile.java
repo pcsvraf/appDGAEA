@@ -26,6 +26,7 @@ public class profile extends AppCompatActivity implements GoogleApiClient.OnConn
     private ImageView photoImageView;
     private TextView nameTextView;
     private TextView emailTextView;
+    public static String prueba2;
 
     private GoogleApiClient googleApiClient;
 

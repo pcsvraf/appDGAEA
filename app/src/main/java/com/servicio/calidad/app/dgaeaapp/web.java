@@ -1,5 +1,6 @@
 package com.servicio.calidad.app.dgaeaapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ public class web extends AppCompatActivity {
     public static final String EXTRA_POSITION = "position";
     private WebView webview;
     private String url;
-    private ProgressBar progressBar;
+    public String sitio;
     public static final String USER_AGENT = "Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19";
 
     @Override
@@ -37,10 +38,11 @@ public class web extends AppCompatActivity {
         //System.out.println(postion);
         Resources resources = getResources();
 
-
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setIcon(R.mipmap.ic_launcher);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
         webview =(WebView)findViewById(R.id.webView);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
         webview.setVisibility(View.GONE);
         webview.setWebViewClient(new WebViewClient());
         webview.getSettings().setJavaScriptEnabled(true);
@@ -48,18 +50,25 @@ public class web extends AppCompatActivity {
         webview.getSettings().setDomStorageEnabled(true);
         webview.setOverScrollMode(WebView.OVER_SCROLL_NEVER);
         webview.addJavascriptInterface(new web.WebAppInterface(this), "Android");
-        if (MainActivity2.sitio=="pucv"){
+        if (MainActivity2.sitio=="pucv" || login.prueba2=="pucv"){
             url="http://www.pucv.cl/";
-        }else if(MainActivity2.sitio=="dgaea"){
+        }else if(MainActivity2.sitio=="dgaea" || login.prueba2=="dgaea"){
             url="http://www.dgaea.pucv.cl/";
-        }else if(MainActivity2.sitio=="buses"){
+        }else if(MainActivity2.sitio=="buses" || login.prueba2=="buses"){
             url="http://www.buses.pucv.cl/";
-        }else if(MainActivity2.sitio=="tuopinion"){
+        }else if(MainActivity2.sitio=="tuopinion" || login.prueba2=="tuopinion"){
             url="http://www.tuopinion.pucv.cl/";
         }
-        progressBar.setVisibility(View.GONE);
         webview.setVisibility(View.VISIBLE);
         webview.loadUrl(url);
+        webview.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                //elimina ProgressBar.
+                progressDialog.dismiss();
+            }
+        });
     }
 
     @Override

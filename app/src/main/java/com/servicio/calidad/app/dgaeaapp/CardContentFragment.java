@@ -55,6 +55,7 @@ public class CardContentFragment extends Fragment {
     public static String usuarios;//es la variable que tendra la info extraida de la bd
     public static String [] nuevito;
     public static int sistema;
+    public static long prueba;
     public static Boolean ingreso=true;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,6 +67,8 @@ public class CardContentFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.getRecycledViewPool().clear();
+        adapter.notifyDataSetChanged();
         return recyclerView;
     }
 
@@ -83,16 +86,16 @@ public class CardContentFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     sistema=getAdapterPosition();
-                    if (getAdapterPosition()==0){
+                    if (sistema==0){
                         Context context = v.getContext();
                         Intent intent = new Intent(context, tabla.class);
-                        intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                        intent.putExtra(tabla.EXTRA, sistema);
                         context.startActivity(intent);
-                    }else if (getAdapterPosition()==1){
+                    }else if (sistema==1){
                         if (ingreso==true){
                             Context context = v.getContext();
                             Intent intent = new Intent(context, tabla.class);
-                            intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                            intent.putExtra(tabla.EXTRA, sistema);
                             context.startActivity(intent);
                         }else {
                             final Context context = v.getContext();
@@ -104,7 +107,7 @@ public class CardContentFragment extends Fragment {
 
                                     dialog.cancel();
                                     Intent intent = new Intent(context, MainActivity2.class);
-                                    intent.putExtra(tabla.EXTRA, getAdapterPosition());
+                                    intent.putExtra(tabla.EXTRA, sistema);
                                     context.startActivity(intent);
                                 }
                             }).show();

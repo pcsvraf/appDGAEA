@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/holi"
+        android:src="@drawable/pruba"
         android:alpha="0.3"/>
 
     <ImageView
@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:alpha="0.3"
         android:scaleType="centerCrop"
-        android:src="@drawable/holi" />
+        android:src="@drawable/pruba" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -62,62 +62,84 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_marginTop="210dp"/>
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="logo"
-        android:maxWidth="70dp"
-        android:maxHeight="70dp"
-        android:scaleType="fitStart"
-        android:alpha="0.9"
-        android:paddingLeft="46dp"
-        android:src="@drawable/home" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <ImageView
+        <ImageView
+            android:id="@+id/pucv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:alpha="0.9"
+            android:src="@drawable/home"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:id="@+id/dgaea"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:alpha="0.9"
+            android:src="@drawable/work"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <ImageView
+            android:id="@+id/buses"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:alpha="0.9"
+            android:src="@drawable/bus"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="logo"
-        android:maxWidth="70dp"
-        android:maxHeight="70dp"
-        android:scaleType="fitCenter"
-        android:alpha="0.9"
-        android:src="@drawable/work" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
-        android:adjustViewBounds="true"
-        android:contentDescription="logo"
-        android:maxWidth="70dp"
-        android:maxHeight="70dp"
-        android:scaleType="fitEnd"
-        android:alpha="0.9"
-        android:paddingRight="46dp"
-        android:src="@drawable/bus" />
+        <ImageView
+            android:id="@+id/tuopinion"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="100dp"
+            android:alpha="0.9"
+            android:src="@drawable/home"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
-    <ImageView
+    </LinearLayout>
+
+    <!--<ImageView
+        android:id="@+id/tuopinion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="420dp"
         android:adjustViewBounds="true"
-        android:contentDescription="logo"
         android:maxWidth="70dp"
         android:maxHeight="70dp"
         android:scaleType="fitCenter"
         android:alpha="0.9"
-        android:src="@drawable/assignment" />
+        android:src="@drawable/assignment" />-->
 
     <com.google.android.gms.common.SignInButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="580dp"
         android:id="@+id/sign_in_button"
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
