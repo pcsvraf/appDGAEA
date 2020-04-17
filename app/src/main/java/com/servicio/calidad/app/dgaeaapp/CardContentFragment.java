@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -45,6 +46,7 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -55,8 +57,9 @@ public class CardContentFragment extends Fragment {
     public static String usuarios;//es la variable que tendra la info extraida de la bd
     public static String [] nuevito;
     public static int sistema;
-    public static long prueba;
+    public static int prueba;
     public static Boolean ingreso=true;
+    ArrayList<String> items = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +71,6 @@ public class CardContentFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.getRecycledViewPool().clear();
-        adapter.notifyDataSetChanged();
         return recyclerView;
     }
 
@@ -166,6 +168,7 @@ public class CardContentFragment extends Fragment {
             return LENGTH;
         }
     }
+
 
     public static class DescargarImagen extends AsyncTask<String, Void, String> {
 
